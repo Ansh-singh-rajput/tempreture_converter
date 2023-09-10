@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Temprature converter</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Sono", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background-image: linear-gradient(135deg, #259f51 10%, #fbd446d9 100%);
+    }
+
+    body {
+        background-image: url(image/tem.jpg);
+        height: 100vh;
+        width: 100%;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 10rem;
+    }
+
+    .converter {
+        display: flex;
+    }
+
+    .converter div {
+        display: flex;
+    }
+
+    .addon {
+        align-items: center;
+        font-size: xx-large;
+        margin-right: 20px;
+    }
+
+    input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 0px solid #ad1a1a;
+        border-radius: 20px;
+    }
+
+    input[type="number"]:focus {
+        outline: none;
+    }
+
+    input[placeholder] {
+        text-align: center;
+        font-size: xx-large;
+    }
+
+    .input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .color {
+        background-color: #fff;
+        border-radius: 20px;
+    }
+
+    hr {
+        margin: 10px 0px;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>Temprature Converter</h1>
+    </header>
+    <div class="container">
+        <div class="converter">
+            <div class="color">
+                <input type="number" id="Fahrenheit" placeholder="Fahrenheit" oninput="fahConvert(this.valueAsNumber)"
+                    pattern="numeric" />
+                <div class="addon">°F</div>
+            </div>
+            <hr />
+            <div class="color">
+                <input type="number" id="Celsius" placeholder="Celsius" oninput="celConvert(this.valueAsNumber)"
+                    pattern="numeric" />
+                <div class="addon">°C</div>
+            </div>
+            <hr />
+        </div>
+    </div>
+</body>
+<script>
+    const Fah = document.getElementById("Fahrenheit");
+    const Cel = document.getElementById("Celsius");
+
+    function fahConvert(f) {
+        var C = (f - 32) / 1.8;
+
+        Cel.value = C.toFixed(2);
+    }
+
+    function celConvert(c) {
+        var F = c * 1.8 + 32;
+
+        Fah.value = F.toFixed(2);
+    }
+</script>
+
+</html>
